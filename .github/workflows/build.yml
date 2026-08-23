@@ -3,7 +3,11 @@ name: Build APK
 on:
   push:
     branches: [main]
+    tags: ['v*']
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -29,14 +33,27 @@ jobs:
       - name: Build release APK
         run: gradle :app:assembleRelease --no-daemon --stacktrace
 
-      - name: Upload debug APK
+      - name: Collect APKs
+        run: |
+          mkdir -p dist
+          cp app/build/outputs/apk/debug/app-debug.apk dist/RadioStreamer-debug.apk
+          cp app/build/outputs/apk/release/app-release.apk "dist/RadioStreamer-${GITHUB_REF_NAME}-release.apk"
+
+      - name: Upload debug APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: radio-streamer-debug
-          path: app/build/outputs/apk/debug/*.apk
+          path: dist/RadioStreamer-debug.apk
 
-      - name: Upload release APK
+      - name: Upload release APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: radio-streamer-release
-          path: app/build/outputs/apk/release/*.apk
+          path: dist/RadioStreamer-*-release.apk
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: dist/*.apk
