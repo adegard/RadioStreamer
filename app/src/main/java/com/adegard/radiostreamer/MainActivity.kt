@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     private var currentUrl: String? = null
     private var isPlaying: Boolean = false
 
-    private val notificationPermissionLauncher =
+    private val permissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { }
 
     private val playerListener = object : Player.Listener {
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         store = StationStore(this)
         adapter = StationAdapter(
             onPlayClick = ::onStationPlayClicked,
-            onLongClick = ::onStationLongClicked
+            onDeleteClick = ::onStationDeleteClicked
         )
 
         val recycler = findViewById<RecyclerView>(R.id.recyclerStations)
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
 
         miniToggle.setOnClickListener { togglePlayPause() }
 
-        requestNotificationIfNeeded()
+        requestPermissionsIfNeeded()
         reloadStations()
         connectController()
     }
@@ -151,20 +151,23 @@ class MainActivity : AppCompatActivity() {
         if (c.isPlaying) c.pause() else c.play()
     }
 
-    private fun onStationLongClicked(station: Station) {
+    private fun onStationDeleteClicked(station: Station) {
         AlertDialog.Builder(this)
             .setTitle(station.name)
-            .setItems(arrayOf(getString(R.string.delete_station))) { _, _ ->
-                store.remove(station.id)
-                if (station.url == currentUrl) {
-                    controller?.stop()
-                    currentUrl = null
-                    refreshPlaybackUi()
-                }
-                reloadStations()
-            }
+            .setMessage(R.string.delete_confirm)
+            .setPositiveButton(R.string.delete) { _, _ -> deleteStation(station) }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
+    }
+
+    private fun deleteStation(station: Station) {
+        store.remove(station.id)
+        if (station.url == currentUrl) {
+            controller?.stop()
+            currentUrl = null
+            refreshPlaybackUi()
+        }
+        reloadStations()
     }
 
     private fun showAddDialog() {
@@ -203,12 +206,19 @@ class MainActivity : AppCompatActivity() {
         miniToggle.setImageResource(if (isPlaying) R.drawable.ic_pause else R.drawable.ic_play)
     }
 
-    private fun requestNotificationIfNeeded() {
-        if (Build.VERSION.SDK_INT >= 33 &&
-            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) !=
-            PackageManager.PERMISSION_GRANTED
-        ) {
-            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+    private fun requestPermissionsIfNeeded() {
+        if (Build.VERSION.SDK_INT >= 33) {
+            if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) !=
+                PackageManager.PERMISSION_GRANTED
+            ) {
+                permissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        } else if (Build.VERSION.SDK_INT < 29) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED
+            ) {
+                permissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ import com.adegard.radiostreamer.data.Station
 
 class StationAdapter(
     private val onPlayClick: (Station) -> Unit,
-    private val onLongClick: (Station) -> Unit,
+    private val onDeleteClick: (Station) -> Unit,
 ) : RecyclerView.Adapter<StationAdapter.Holder>() {
 
     private val items = mutableListOf<Station>()
@@ -33,6 +33,7 @@ class StationAdapter(
         val name: TextView = v.findViewById(R.id.stationName)
         val url: TextView = v.findViewById(R.id.stationUrl)
         val toggle: ImageButton = v.findViewById(R.id.btnPlayPause)
+        val delete: ImageButton = v.findViewById(R.id.btnDelete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder =
@@ -53,9 +54,6 @@ class StationAdapter(
         )
         holder.itemView.isSelected = active
         holder.toggle.setOnClickListener { onPlayClick(station) }
-        holder.itemView.setOnLongClickListener {
-            onLongClick(station)
-            true
-        }
+        holder.delete.setOnClickListener { onDeleteClick(station) }
     }
 }
