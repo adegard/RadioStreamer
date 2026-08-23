@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Radio Streamer</string>
+    <string name="add_station">Add station</string>
+    <string name="station_name">Station name</string>
+    <string name="stream_url">Stream URL</string>
+    <string name="add">Add</string>
+    <string name="delete_station">Delete station</string>
+    <string name="empty_message">No stations yet.\nTap + to add a stream URL.</string>
+    <string name="play_pause">Play / pause</string>
+    <string name="fields_required">Name and URL are required</string>
+    <string name="stream_error">Could not play this stream</string>
+    <string name="player_error">Could not start the player</string>
+</resources>
