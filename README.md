@@ -37,3 +37,7 @@ Pushing a tag like `v1.2` makes GitHub Actions build signed APKs and publish the
 ## Tech
 
 Kotlin · AndroidX Media3 (ExoPlayer + MediaSessionService foreground service) · Material 3 · minSdk 24 / targetSdk 34
+
+---
+
+For an overview of all my other projects, see https://adegard.github.io/blog/
