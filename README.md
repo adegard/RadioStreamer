@@ -1,3 +1,5 @@
+[![Buy me a coffee](https://cdn.buymeacoffee.com/buttons/v2/default-red.png)](https://www.buymeacoffee.com/adegard)
+
 # Radio Streamer
 
 A simple, ad-free internet radio app for Android. Stream any radio station from the web, keep listening with the screen off, and manage your own station list.
