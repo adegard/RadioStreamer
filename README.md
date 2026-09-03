@@ -1,8 +1,8 @@
 [![Buy me a coffee](https://cdn.buymeacoffee.com/buttons/v2/default-red.png)](https://www.buymeacoffee.com/adegard)
 
-# Radio Streamer
+# Radio Streamer (and podcats)
 
-A simple, ad-free internet radio app for Android. Stream any radio station from the web, keep listening with the screen off, and manage your own station list.
+A simple, ad-free internet radio app for Android. Stream any radio station or podcast rss feed from the web, keep listening with the screen off, and manage your own station list.
 
 [![Build APK](https://github.com/adegard/RadioStreamer/actions/workflows/build.yml/badge.svg)](https://github.com/adegard/RadioStreamer/actions/workflows/build.yml)
 
