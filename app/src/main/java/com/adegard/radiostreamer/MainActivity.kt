@@ -303,7 +303,7 @@ class MainActivity : AppCompatActivity() {
         val nameEdit = view.findViewById<TextView>(R.id.editName)
         val urlEdit = view.findViewById<TextView>(R.id.editUrl)
         nameEdit.visibility = View.GONE
-        view.findViewById<TextView>(R.id.labelName)?.visibility = View.GONE
+        view.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.labelName)?.visibility = View.GONE
         urlEdit.hint = getString(R.string.podcast_url_hint)
 
         AlertDialog.Builder(this)
