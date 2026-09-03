@@ -13,4 +13,16 @@
     <string name="fields_required">Name and URL are required</string>
     <string name="stream_error">Could not play this stream</string>
     <string name="player_error">Could not start the player</string>
+    <string name="tab_radio">Radio</string>
+    <string name="tab_podcasts">Podcasts</string>
+    <string name="add_podcast">Add podcast</string>
+    <string name="podcast_url_hint">RSS feed URL, page URL, or search name</string>
+    <string name="search_hint">Search podcasts</string>
+    <string name="select_podcast">Select a podcast</string>
+    <string name="adding_podcast">Adding podcast…</string>
+    <string name="podcast_added">Podcast added</string>
+    <string name="podcast_error">Could not add this podcast</string>
+    <string name="no_episodes">No episodes found</string>
+    <string name="empty_podcasts">No podcasts yet.\nTap + to search or add an RSS feed.</string>
+    <string name="back">Back</string>
 </resources>

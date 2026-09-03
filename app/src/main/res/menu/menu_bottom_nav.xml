@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_radio"
+        android:icon="@drawable/ic_radio"
+        android:title="@string/tab_radio" />
+    <item
+        android:id="@+id/nav_podcasts"
+        android:icon="@drawable/ic_podcast"
+        android:title="@string/tab_podcasts" />
+</menu>
