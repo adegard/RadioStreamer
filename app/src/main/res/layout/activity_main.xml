@@ -121,7 +121,8 @@
                         android:layout_height="48dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/back"
-                        android:src="@drawable/ic_arrow_back" />
+                        android:src="@drawable/ic_arrow_back"
+                        app:tint="?attr/colorOnSurface" />
 
                     <TextView
                         android:id="@+id/episodePodcastTitle"
@@ -186,7 +187,8 @@
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/play_pause"
-            android:src="@drawable/ic_pause" />
+            android:src="@drawable/ic_pause"
+            app:tint="?attr/colorOnSurface" />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

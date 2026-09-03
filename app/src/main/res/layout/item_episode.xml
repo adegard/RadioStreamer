@@ -54,5 +54,6 @@
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/play_pause"
-        android:src="@drawable/ic_play" />
+        android:src="@drawable/ic_play"
+        app:tint="?attr/colorOnSurface" />
 </LinearLayout>

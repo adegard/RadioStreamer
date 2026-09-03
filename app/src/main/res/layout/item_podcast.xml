@@ -49,7 +49,8 @@
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/play_pause"
-        android:src="@drawable/ic_play" />
+        android:src="@drawable/ic_play"
+        app:tint="?attr/colorOnSurface" />
 
     <ImageButton
         android:id="@+id/btnPodcastDelete"
@@ -57,5 +58,6 @@
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/delete"
-        android:src="@drawable/ic_delete" />
+        android:src="@drawable/ic_delete"
+        app:tint="?attr/colorOnSurface" />
 </LinearLayout>
