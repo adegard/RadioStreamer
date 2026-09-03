@@ -6,6 +6,8 @@ A simple, ad-free internet radio app for Android. Stream any radio station from 
 
 [![Build APK](https://github.com/adegard/RadioStreamer/actions/workflows/build.yml/badge.svg)](https://github.com/adegard/RadioStreamer/actions/workflows/build.yml)
 
+![Screenshot](docs/screenshot_radio.png)
+
 ## Features
 
 - 📻 **Internet radio streaming** powered by ExoPlayer / Media3 (supports MP3, AAC, HLS/m3u8, http and https streams)
